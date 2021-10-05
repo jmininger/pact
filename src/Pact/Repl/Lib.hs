@@ -622,6 +622,7 @@ verify i as = case as of
     setop $ TcErrors $ Text.unpack <$> renderedLines
     return failureMessage
 #else
+    _ <- error "here"
     modResult <- liftIO $ Check.verifyModule modules md
     let renderedLines = Check.renderVerifiedModule modResult
     case modResult of
